@@ -2,10 +2,10 @@
 import { lazy, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { RestrictedRoute} from '../Route/PestrictedRoute';
+import { RestrictedRoute} from '../Route/RestrictedRoute';
 import { PrivateRoute } from '../Route/PrivateRoute';
 import SharedLayout from '../SharedLayout/SharedLayout';
-import { useAuth } from '../hooks';
+import  useAuth  from '../hooks';
 import { refreshUser } from 'redux/auth/authOperations';
 
 const HomePage = lazy(() => import('../../pages/Home.js'));
