@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilter } from 'redux/filterSlice';
-import { selectStatusFilter } from 'redux/selectors';
+
 import css from './Filter.module.css';
 
-export const Filter = () => {
+import { setFilter } from 'redux/filter/filterSlice';
+import { selectStatusFilter } from 'redux/selectors';
+
+export default function Filter() {
   const dispatch = useDispatch();
   const filter = useSelector(selectStatusFilter);
 
@@ -12,18 +14,19 @@ export const Filter = () => {
     dispatch(setFilter(e.target.value));
   };
   return (
-    <label className={css.label}>
+    <label className={css.contactLabel}>
       Find contacts by name
       <input
-        className={css.input}
+        className={css.contactInput}
         type="text"
         name={filter}
         value={filter}
         onChange={onChange}
+        placeholder="Please write name"
       />
     </label>
   );
-};
+}
 
 Filter.propTypes = {
   filter: PropTypes.string,

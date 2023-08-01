@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
-axios.defaults.baseURL = 'https://64be51a35ee688b6250c30b1.mockapi.io/contacts';
+import toast from 'react-hot-toast';
 
 export const fetchContacts = createAsyncThunk(
   'contacts/fetchAll',
@@ -17,11 +16,12 @@ export const fetchContacts = createAsyncThunk(
 
 export const addContact = createAsyncThunk(
   'contacts/addContact',
-  async (contact, thunkAPI) => {
+  async ({ name, number }, thunkAPI) => {
     try {
-      const response = await axios.post('/contacts', contact);
+      const response = await axios.post('/contacts', { name, number });
       return response.data;
     } catch (e) {
+      toast.error('Something went wrong. Please try again.');
       return thunkAPI.rejectWithValue(e.message);
     }
   }

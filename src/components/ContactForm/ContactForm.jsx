@@ -1,16 +1,16 @@
 import { useState } from 'react';
-import { nanoid } from 'nanoid';
-import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/operations';
-import { selectContacts } from 'redux/selectors';
+// import { nanoid } from 'nanoid';
 import css from './ContactForm.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from 'redux/contacts/operations';
+import { selectContacts } from 'redux/selectors';
 
 export const ContactForm = () => {
   const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   const [contactName, setcontactName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -22,13 +22,13 @@ export const ContactForm = () => {
     dispatch(
       addContact({
         name: contactName,
-        phone,
-        id: nanoid(),
+        number,
+        // id: nanoid(),
       })
     );
 
     setcontactName('');
-    setPhone('');
+    setNumber('');
   };
 
   const handleChange = e => {
@@ -38,8 +38,8 @@ export const ContactForm = () => {
       case 'name':
         setcontactName(value);
         break;
-      case 'phone':
-        setPhone(value);
+      case 'number':
+        setNumber(value);
         break;
 
       default:
@@ -48,11 +48,11 @@ export const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={css.wrapper}>
-      <label className={css.label}>
+    <form onSubmit={handleSubmit} className={css.form}>
+      <label className={css.formLabel}>
         Name
         <input
-          className={css.input}
+          className={css.formInput}
           type="text"
           name="name"
           value={contactName}
@@ -63,13 +63,13 @@ export const ContactForm = () => {
         />
       </label>
 
-      <label className={css.label}>
+      <label className={css.formLabel}>
         Number
         <input
-          className={css.input}
+          className={css.formInput}
           type="tel"
-          name="phone"
-          value={phone}
+          name="number"
+          value={number}
           onChange={handleChange}
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
@@ -77,7 +77,7 @@ export const ContactForm = () => {
         />
       </label>
 
-      <button className={css.btn} type="submit">
+      <button className={css.addContactBtn} type="submit">
         Add contact
       </button>
     </form>
