@@ -1,40 +1,3 @@
-/*.list {
-  display: block;
-  justify-content: space-between;
-  width: 60vw;
-  margin: 0;
-  padding-left: 16px;
-  padding-top: 12px;
-  padding-right: 20px;
-  padding-bottom: 12px;
-}
-
-.text {  
-  margin-top: 0;
-  margin-bottom: 0;
-  color: #1D1E55;
-  font-size: 24px;
-  text-align: left;
-}
-
-.item {
-  display: flex;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  gap: 30px;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.btn {
- padding: 10px;
- font-size: 20px;
- color:aliceblue;
- background-color: #32337C;
- border: 1px solid #1D1E55;
- border-radius: 5px;
-}*/
-
 .contactList {
   margin-top: 30px;
   display: flex;
@@ -61,7 +24,7 @@
 
 .contactListBtn:hover,
 .contactListBtn:focus {
-  background-color: rgb(255, 2, 2);
+  background-color: #1D1E55;
   color: #fff;
   transform: scale(1.1);
   transition: all 250ms;
