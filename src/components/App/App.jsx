@@ -1,4 +1,3 @@
-// import css from './App.module.css';
 import { lazy, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
