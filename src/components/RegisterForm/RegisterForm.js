@@ -25,10 +25,7 @@ export const RegisterForm = () => {
         type="text" 
         name="name"
         placeholder="Your name"
-        aria-label="Input for your name"
-        //className={css.input}
-        //value={name}
-        //onChange={hanldeChange}
+        aria-label="Input for your name"        
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
         title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
         required />
@@ -38,10 +35,7 @@ export const RegisterForm = () => {
         Email
         <input className={css.formInput} 
         type="email" 
-        name="email" 
-        //value={email}
-        //onChange={hanldeChange}
-        //className={css.input}
+        name="email"         
         placeholder="Your e-mail"
         aria-label="Input for your Email"
         required/>
@@ -51,10 +45,7 @@ export const RegisterForm = () => {
         Password
         <input className={css.formInput} 
         type="password" 
-        name="password" 
-        //value={password}
-        //onChange={hanldeChange}
-        //className={css.input}
+        name="password"         
         placeholder="Should be at least 7 characters"
         aria-label="Input for your password"
         required/>
